@@ -1,5 +1,5 @@
 # Project structure
-
+```
 pk-extractor/
 │   pyproject.toml
 │   .gitignore
@@ -17,6 +17,8 @@ pk-extractor/
 ├── │   logger.py
 ├── │   generator.py
 ├── │   cli.py
+```
+
 
 # File contents
 
