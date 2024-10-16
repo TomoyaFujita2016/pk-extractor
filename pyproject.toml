@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pk-extractor"
-version = "0.2.0"
+version = "0.2.1"
 description = "Project Knowledge Extractor"
 authors = ["TomoyaFujita2016 <fujita.t.2016c@gmail.com>"]
 readme = "README.md"
