@@ -58,8 +58,9 @@ def generate_knowledge(root_dir, output_file, exclude_patterns=None):
             rel_path = dirpath.relative_to(root_dir)
 
             if should_ignore(dirpath, gitignore_funcs, root_dir, exclude_patterns):
-                ignore_count += sum([len(files) for _, _, files in os.walk(dirpath)])
-                pbar.update(len(filenames))
+                _file_count = sum([len(files) for _, _, files in os.walk(dirpath)])
+                ignore_count += _file_count
+                pbar.update(_file_count)
                 dirnames[:] = []
                 continue
 
@@ -93,14 +94,15 @@ def generate_knowledge(root_dir, output_file, exclude_patterns=None):
                     ignore_count += 1
                 pbar.update(1)
 
-    log.info(f"Total files: {total_files}.")
-    log.info(f"Ignored {ignore_count} files.")
     log.info(f"Processed {content_count} files.")
+    log.info(f"{ignore_count} files were ignored.")
 
     try:
         with open(output_file, "w", encoding="utf-8") as f:
             f.write("# Project structure\n\n")
+            f.write("```\n")
             f.write("\n".join(structure))
+            f.write("```\n")
             f.write("\n\n\n")
             f.write("# File contents\n\n")
             f.write("\n\n".join(file_contents))
