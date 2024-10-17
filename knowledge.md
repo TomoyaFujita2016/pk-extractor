@@ -26,13 +26,13 @@ pk-extractor/
 ```
 [tool.poetry]
 name = "pk-extractor"
-version = "0.2.1"
+version = "0.2.3"
 description = "Project Knowledge Extractor"
 authors = ["TomoyaFujita2016 <fujita.t.2016c@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.9"
 gitignore-parser = "^0.1.11"
 tqdm = "^4.66.5"
 
@@ -48,7 +48,7 @@ build-backend = "poetry.core.masonry.api"
 
 
 [tool.poetry.scripts]
-generate = "pk_extractor.cli:main"
+pk-extractor = "pk_extractor.cli:main"
 ```
 
 - /.gitignore
@@ -73,81 +73,13 @@ pk-extractor (Project Knowledge Extractor) is a tool that generates a comprehens
 - Provides progress information during processing
 - Handles binary files and errors gracefully
 
-## Installation
 
-You can install pk-extractor using pip:
-
+## Easy to use
 ```
-pip install pk-extractor
-```
-
-```
-poetry add pk-extractor
+pk-extractor .
 ```
 
 
-## Usage
-
-After installation, you can run pk-extractor from the command line:
-
-```
-pk-extractor <root_dir> [--output_file OUTPUT_FILE] [--exclude [EXCLUDE [EXCLUDE ...]]]
-```
-
-or
-
-```
-pipx run pk-extractor <root_dir> [--output_file OUTPUT_FILE] [--exclude [EXCLUDE [EXCLUDE ...]]]
-```
-
-### Arguments:
-
-- `root_dir`: Path to the repository you want to analyze (required)
-- `--output_file`: Path to the output file (default: "knowledge.md")
-- `--exclude`: Patterns to exclude (e.g., "*.pyc" "venv/*")
-
-### Examples:
-
-1. Generate knowledge for a repository:
-   ```
-   pk-extractor /path/to/your/repo
-   ```
-
-2. Specify an output file:
-   ```
-   pk-extractor /path/to/your/repo --output_file my_knowledge.md
-   ```
-
-3. Exclude specific patterns:
-   ```
-   pk-extractor /path/to/your/repo --exclude "*.pyc" "venv/*" "*.log"
-   ```
-
-
-## Output
-
-The script generates a markdown file containing:
-
-1. Project structure
-2. File contents
-
-## Development
-
-To set up the development environment:
-
-1. Clone the repository:
-   ```
-   git clone https://github.com/your-username/pk-extractor.git
-   cd pk-extractor
-   ```
-
-2. Install dependencies:
-   ```
-   poetry install
-   ```
-
-
-Now you can run the tool or tests within this environment.
 
 ## Contributing
 
